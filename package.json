@@ -1,0 +1,40 @@
+{
+	"name": "mjml-boilerplate",
+	"version": "1.0.0",
+	"description": "mjml-boilerplate",
+  "author": "Jonathon Oates",
+	"license": "UNLICENSED",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jonathonoates/mjml-boilerplate.git"
+	},
+	"scripts": {
+		"mjml": "mjml './tmp/*.mjml' -o './dist'",
+		"start": "gulp default",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"config": {
+		"browserSync": {
+			"port": 8080,
+			"server": {
+				"directory": true,
+				"index": "email.html"
+			}
+		},
+		"mjml": {
+			"minify": true
+		},
+		"paths": {
+			"dist": "./dist",
+			"src": "./src",
+			"tmp": "./tmp"
+		}
+	},
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-hb": "^7.0.1",
+    "mjml": "^4.3.1"
+  }
+}

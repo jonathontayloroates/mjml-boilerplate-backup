@@ -1,0 +1,6 @@
+.DS_Store
+dist/*
+!dist/.gitkeep
+node_modules
+tmp/*
+!tmp/.gitkeep
