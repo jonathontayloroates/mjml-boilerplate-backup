@@ -48,4 +48,26 @@ cd ~/Sites/my-new-email
 npm start
 ```
 
-Each time you save, your Handlebars templates and associated data will compile into production-ready HTML. Changes will be automagically synced to your browser.
+Each time you save, your Handlebars templates and associated data will compile into production-ready, responsive HTML. Changes will be automagically synced to your browser.
+
+### Configuration
+
+Look inside the `package.json` file and you’ll find the configuration (`config`) object. These options are self-explanatory if you want to change things, though you shouldn’t need to.
+```
+"config": {
+	"browserSync": {
+		"port": 8080,
+		"server": {
+			"directory": true
+		}
+	},
+	"mjml": {
+		"minify": true
+	},
+	"paths": {
+		"dist": "./dist",
+		"src": "./src",
+		"tmp": "./tmp"
+	}
+}
+```
