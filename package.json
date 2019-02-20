@@ -17,8 +17,7 @@
 		"browserSync": {
 			"port": 8080,
 			"server": {
-				"directory": true,
-				"index": "email.html"
+				"directory": true
 			}
 		},
 		"mjml": {
