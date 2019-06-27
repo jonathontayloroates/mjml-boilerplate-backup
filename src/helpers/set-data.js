@@ -1,7 +1,7 @@
 'use strict';
 
 const helper = {
-  var: (key, value, options) => {
+  set: (key, value, options) => {
     options.data.root[key] = value;
   }
 }

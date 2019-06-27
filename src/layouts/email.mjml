@@ -1,5 +1,25 @@
+{{set "hubl" "false" }}
+{{> variables }}
 <mjml>
-  {{> head }}
+  <mj-head>
+    <mj-attributes>
+      {{> attributes }}
+    </mj-attributes>
+    <mj-font href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&display=swap" name="Roboto" />
+    <mj-style inline="inline">
+
+    </mj-style>
+    <mj-title>{{ head.title }}</mj-title>
+    <mj-preview>{{ head.preview }}&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</mj-preview>
+  </mj-head>
   <mj-body>
+    <mj-raw>
+      <style {{#if hubl }}data-hse-inline-css="true"{{/if }}>
+        /*<![CDATA[*/
+
+        /*]]>*/
+      </style>
+    </mj-raw>
+    <mj-section></mj-section>
   </mj-body>
 </mjml>
