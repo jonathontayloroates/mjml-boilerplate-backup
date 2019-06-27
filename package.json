@@ -2,7 +2,7 @@
 	"name": "mjml-boilerplate",
 	"version": "1.0.0",
 	"description": "mjml-boilerplate",
-  "author": "Jonathon Oates",
+	"author": "Jonathon Oates",
 	"license": "UNLICENSED",
 	"repository": {
 		"type": "git",
@@ -29,11 +29,12 @@
 			"tmp": "./tmp"
 		}
 	},
-  "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "del": "^3.0.0",
-    "gulp": "^4.0.0",
-    "gulp-hb": "^7.0.1",
-    "mjml": "^4.3.1"
-  }
+	"devDependencies": {
+		"browser-sync": "^2.26.3",
+		"del": "^3.0.0",
+		"gulp": "^4.0.0",
+		"gulp-copy": "^4.0.1",
+		"gulp-hb": "^7.0.1",
+		"mjml": "^4.3.1"
+	}
 }

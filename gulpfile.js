@@ -1,9 +1,9 @@
-// https://stackoverflow.com/a/46368953/311403
 const { dest, parallel, series, src, watch } = require('gulp');
 
 const browserSync = require('browser-sync').create();
 const exec = require('child_process').exec;
 const del = require('del');
+const copy = require('gulp-copy');
 const hb = require('gulp-hb');
 
 const config = require('./package.json').config;
@@ -35,12 +35,25 @@ async function sync() {
 	await Promise.resolve();
 }
 
+function assets() {
+	return src('src/assets/**/*')
+		.pipe(copy('dist', {
+	    prefix: 2
+  	}));
+}
+
 function clearDist() {
-	return del([config.paths.dist + '/*', '!' + config.paths.dist + '/.gitkeep']);
+	return del([
+		config.paths.dist + '/*',
+		'!' + config.paths.dist + '/.gitkeep'
+	]);
 }
 
 function clearTmp() {
-	return del([config.paths.tmp + '/*', '!' + config.paths.tmp + '/.gitkeep']);
+	return del([
+		config.paths.tmp + '/*',
+		'!' + config.paths.tmp + '/.gitkeep'
+	]);
 }
 
 function handlebars() {
@@ -67,6 +80,6 @@ function watchTmp() {
 	watch(config.paths.tmp + '/*.mjml', series(clearDist, mjml));
 }
 
-exports.default = series(clearDist, clearTmp, handlebars, mjml, serve, parallel(watchDist, watchSrc, watchTmp));
+exports.default = series(clearDist, clearTmp, parallel(assets, handlebars), mjml, serve, parallel(watchDist, watchSrc, watchTmp));
 exports.handlebars = series(clearTmp, handlebars);
 exports.mjml = series(clearDist, mjml);
