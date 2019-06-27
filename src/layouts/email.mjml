@@ -1,5 +1,11 @@
+---
+title: Lorem ipsum dolor sit amet
+preview: Nulla elementum diam quis purus iaculis commodo
+---
+
 {{set "hubl" "false" }}
-{{> variables }}
+
+
 <mjml>
   <mj-head>
     <mj-attributes>
@@ -9,8 +15,8 @@
     <mj-style inline="inline">
 
     </mj-style>
-    <mj-title>{{ head.title }}</mj-title>
-    <mj-preview>{{ head.preview }}&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</mj-preview>
+    <mj-title>{{ frontMatter.title }}</mj-title>
+    <mj-preview>{{ frontMatter.preview }}&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</mj-preview>
   </mj-head>
   <mj-body>
     <mj-raw>
@@ -23,3 +29,5 @@
     <mj-section></mj-section>
   </mj-body>
 </mjml>
+
+{{> variables }}

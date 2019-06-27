@@ -4,6 +4,7 @@ const browserSync = require('browser-sync').create();
 const exec = require('child_process').exec;
 const del = require('del');
 const copy = require('gulp-copy');
+const frontMatter = require('gulp-front-matter');
 const hb = require('gulp-hb');
 
 const config = require('./package.json').config;
@@ -58,10 +59,13 @@ function clearTmp() {
 
 function handlebars() {
 	return src(config.paths.src + '/layouts/*.mjml')
+		.pipe(frontMatter({
+			property: 'data.frontMatter'
+		}))
 		.pipe(hb()
-		.partials(config.paths.src + '/partials/*.hbs')
-		.helpers(config.paths.src + '/helpers/*.js')
-		.data(config.paths.src + '/data/*.json'))
+			.partials(config.paths.src + '/partials/*.hbs')
+			.helpers(config.paths.src + '/helpers/*.js')
+			.data(config.paths.src + '/data/*.json'))
 		.pipe(dest(config.paths.tmp));
 }
 
