@@ -2,5 +2,6 @@
 dist/*
 !dist/.gitkeep
 node_modules
+src/assets/css/*
 tmp/*
 !tmp/.gitkeep
