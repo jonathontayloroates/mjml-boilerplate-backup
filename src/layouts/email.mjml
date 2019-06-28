@@ -3,7 +3,7 @@ title: Lorem ipsum dolor sit amet
 preview: Nulla elementum diam quis purus iaculis commodo
 ---
 
-{{set "hubl" true }}
+{{set "hubl" false }}
 
 {{> variables }}
 
@@ -12,15 +12,21 @@ preview: Nulla elementum diam quis purus iaculis commodo
   {{> head }}
 
   <mj-body>
-    <mj-raw>
-      <style {{#if hubl }}data-hse-inline-css="true"{{/if }}>
-        /*<![CDATA[*/
 
-        {{> main.css }}
+    {{#if hubl }} 
 
-        /*]]>*/
-      </style>
-    </mj-raw>
+      <mj-raw>
+        <styledata-hse-inline-css="true">
+          /*<![CDATA[*/
+
+          {{> main.css }}
+
+          /*]]>*/
+        </style>
+      </mj-raw>
+
+    {{/if }}
+
     <mj-section>
       <mj-column>
         <mj-text>

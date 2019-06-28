@@ -38,8 +38,9 @@ async function sync() {
 	await Promise.resolve();
 }
 
+// TODO: Ignore CSS and SCSS directories
 function assets() {
-	return src('src/assets/**/*')
+	return src('src/assets/img/*')
 		.pipe(copy('dist', {
 	    prefix: 2
   	}));
@@ -83,18 +84,18 @@ function css() {
 }
 
 function watchDist() {
-	watch(config.paths.dist + '/*.html').on('add', function() {
+	watch(config.paths.dist + '/**/*').on('all', () => {
 		sync();
 	});
 }
 
 function watchSrc() {
-	watch(config.paths.src + '/**/*.(hbs|json|mjml)', series(clearTmp, handlebars));
+	watch(config.paths.src + '/**/*.(hbs|mjml)', series(clearTmp, handlebars));
 
 }
 
 function watchTmp() {
-	watch(config.paths.tmp + '/*.mjml', series(clearDist, mjml));
+	watch(config.paths.tmp + '/**/*.(hbs|mjml)', mjml);
 }
 
 exports.default = series(clearDist, clearTmp, css, parallel(assets, handlebars), mjml, serve, parallel(watchDist, watchSrc, watchTmp));
