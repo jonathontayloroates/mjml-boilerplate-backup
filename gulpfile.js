@@ -6,6 +6,8 @@ const del = require('del');
 const copy = require('gulp-copy');
 const frontMatter = require('gulp-front-matter');
 const hb = require('gulp-hb');
+const rename = require("gulp-rename");
+const sass = require('gulp-sass');
 
 const config = require('./package.json').config;
 
@@ -70,6 +72,16 @@ function handlebars() {
 		.pipe(dest(config.paths.tmp));
 }
 
+function css() {
+  return src(config.paths.src + '/assets/scss/**/*.scss')
+    .pipe(sass({ includePaths: 'node_modules' })
+    .on('error', sass.logError))
+		.pipe(rename((path) => {
+			path.extname += '.hbs'
+		}))
+    .pipe(dest(config.paths.src + '/assets/css'));
+}
+
 function watchDist() {
 	watch(config.paths.dist + '/*.html').on('add', function() {
 		sync();
@@ -85,6 +97,6 @@ function watchTmp() {
 	watch(config.paths.tmp + '/*.mjml', series(clearDist, mjml));
 }
 
-exports.default = series(clearDist, clearTmp, parallel(assets, handlebars), mjml, serve, parallel(watchDist, watchSrc, watchTmp));
+exports.default = series(clearDist, clearTmp, css, parallel(assets, handlebars), mjml, serve, parallel(watchDist, watchSrc, watchTmp));
 exports.handlebars = series(clearTmp, handlebars);
 exports.mjml = series(clearDist, mjml);
