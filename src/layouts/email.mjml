@@ -3,31 +3,29 @@ title: Lorem ipsum dolor sit amet
 preview: Nulla elementum diam quis purus iaculis commodo
 ---
 
-{{set "hubl" "false" }}
+{{set "hubl" true }}
 
+{{> variables }}
 
 <mjml>
-  <mj-head>
-    <mj-attributes>
-      {{> attributes }}
-    </mj-attributes>
-    <mj-font href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&display=swap" name="Roboto" />
-    <mj-style inline="inline">
 
-    </mj-style>
-    <mj-title>{{ frontMatter.title }}</mj-title>
-    <mj-preview>{{ frontMatter.preview }}&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</mj-preview>
-  </mj-head>
+  {{> head }}
+
   <mj-body>
     <mj-raw>
       <style {{#if hubl }}data-hse-inline-css="true"{{/if }}>
         /*<![CDATA[*/
 
+        {{> main.css }}
+
         /*]]>*/
       </style>
     </mj-raw>
-    <mj-section></mj-section>
+    <mj-section>
+      <mj-column>
+        <mj-text>
+        </mj-text>
+      </mj-column>
+    </mj-section>
   </mj-body>
 </mjml>
-
-{{> variables }}

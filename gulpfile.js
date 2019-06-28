@@ -63,9 +63,9 @@ function handlebars() {
 			property: 'data.frontMatter'
 		}))
 		.pipe(hb()
-			.partials(config.paths.src + '/partials/*.hbs')
+			.data(config.paths.src + '/data/*.json')
 			.helpers(config.paths.src + '/helpers/*.js')
-			.data(config.paths.src + '/data/*.json'))
+			.partials(config.paths.src + '/partials/*.hbs'))
 		.pipe(dest(config.paths.tmp));
 }
 
