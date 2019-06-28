@@ -65,6 +65,7 @@ function handlebars() {
 		.pipe(hb()
 			.data(config.paths.src + '/data/*.json')
 			.helpers(config.paths.src + '/helpers/*.js')
+			.partials(config.paths.src + '/assets/css/*hbs')
 			.partials(config.paths.src + '/partials/*.hbs'))
 		.pipe(dest(config.paths.tmp));
 }
@@ -76,7 +77,7 @@ function watchDist() {
 }
 
 function watchSrc() {
-	watch(config.paths.src + '/*/*.(hbs|json|mjml)', series(clearTmp, handlebars));
+	watch(config.paths.src + '/**/*.(hbs|json|mjml)', series(clearTmp, handlebars));
 
 }
 
