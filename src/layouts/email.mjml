@@ -5,8 +5,6 @@ preview: Nulla elementum diam quis purus iaculis commodo
 
 {{set "hubl" false }}
 
-{{> variables }}
-
 <mjml>
 
   {{> head }}
@@ -29,8 +27,6 @@ preview: Nulla elementum diam quis purus iaculis commodo
 
     <mj-section>
       <mj-column>
-        <mj-text>
-        </mj-text>
       </mj-column>
     </mj-section>
   </mj-body>

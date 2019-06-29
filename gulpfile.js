@@ -10,6 +10,7 @@ const rename = require("gulp-rename");
 const sass = require('gulp-sass');
 
 const config = require('./package.json').config;
+const data = require('./src/data/global.json');
 
 async function mjml() {
 	exec('npm run-script mjml -- --config.minify=' + config.mjml.minify.toString());
@@ -68,6 +69,7 @@ function handlebars() {
 		}))
 		.pipe(hb()
 			.data(config.paths.src + '/data/*.json')
+			.data(data)
 			.helpers(config.paths.src + '/helpers/*.js')
 			.partials(config.paths.src + '/assets/css/*hbs')
 			.partials(config.paths.src + '/partials/*.hbs'))
@@ -92,7 +94,7 @@ function watchDist() {
 
 function watchSrc() {
 	watch(config.paths.src + '/**/*.(hbs|mjml)', series(clearTmp, handlebars));
-	watch(config.paths.src + '/assets/scss/*', css);
+	watch(config.paths.src + '/assets/scss/**/*', css);
 	watch(config.paths.src + '/assets/img/*', assets);
 }
 
