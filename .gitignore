@@ -4,4 +4,3 @@ dist/*
 node_modules
 src/assets/css/*
 tmp/*
-!tmp/.gitkeep
