@@ -103,5 +103,3 @@ function watchTmp() {
 }
 
 exports.default = series(clearDist, clearTmp, css, parallel(assets, handlebars), mjml, serve, parallel(watchDist, watchSrc, watchTmp));
-exports.handlebars = series(clearTmp, handlebars);
-exports.mjml = series(clearDist, mjml);
