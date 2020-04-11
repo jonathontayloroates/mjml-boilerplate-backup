@@ -12,7 +12,7 @@ cd ~/Sites
 
 2. Paste the following code
  ```
-echo What’s your project called? && read dir && mkdir "$dir" && curl -L https://github.com/jonathonoates/mjml-boilerplate/tarball/master > tmp.tar.gz && tar fxz tmp.tar.gz -C "$dir" --strip-components=1 && rm tmp.tar.gz
+echo What’s your project called? && read dir && mkdir "$dir" && curl -L https://github.com/jonathontayloroates/mjml-boilerplate/tarball/master > tmp.tar.gz && tar fxz tmp.tar.gz -C "$dir" --strip-components=1 && rm tmp.tar.gz
 ```
 
 3. Give your project a name e.g. `my-new-email`
@@ -55,19 +55,19 @@ Each time you save, your Handlebars templates and associated data will compile i
 Look inside the `package.json` file and you’ll find the configuration (`config`) object. These options are self-explanatory if you want to change things, though you shouldn’t need to.
 ```
 "config": {
-	"browserSync": {
-		"port": 8080,
-		"server": {
-			"directory": true
-		}
-	},
-	"mjml": {
-		"minify": true
-	},
-	"paths": {
-		"dist": "./dist",
-		"src": "./src",
-		"tmp": "./tmp"
-	}
+  "browserSync": {
+    "port": 8080,
+    "server": {
+      "directory": true
+    }
+  },
+  "mjml": {
+    "minify": true
+  },
+  "paths": {
+    "dist": "./dist",
+    "src": "./src",
+    "tmp": "./tmp"
+  }
 }
 ```
