@@ -12,7 +12,7 @@ cd ~/Sites
 
 2. Paste the following code
  ```
-echo What’s your project called? && read dir && mkdir "$dir" && curl -L https://github.com/jonathontayloroates/mjml-boilerplate/tarball/master > tmp.tar.gz && tar fxz tmp.tar.gz -C "$dir" --strip-components=1 && rm tmp.tar.gz
+echo "What’s your project called?" && read dir && mkdir "$dir" && curl -L https://github.com/jonathontayloroates/mjml-boilerplate/tarball/master > tmp.tar.gz && tar fxz tmp.tar.gz -C "$dir" --strip-components=1 && rm tmp.tar.gz
 ```
 
 3. Give your project a name e.g. `my-new-email`
