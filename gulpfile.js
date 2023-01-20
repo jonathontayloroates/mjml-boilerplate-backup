@@ -7,7 +7,7 @@ const copy = require('gulp-copy');
 const frontMatter = require('gulp-front-matter');
 const hb = require('gulp-hb');
 const rename = require("gulp-rename");
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 
 const config = require('./package.json').config;
 const data = require('./src/data/global.json');
